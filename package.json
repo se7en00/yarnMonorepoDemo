@@ -1,0 +1,24 @@
+{
+  "name": "yarnmonorepo",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "seven",
+  "license": "MIT",
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "interface": "yarn workspace interface",
+    "pa": "yarn workspace package-a"
+  },
+  "nohoist": [],
+  "packageManager": "yarn@3.2.1",
+  "devDependencies": {
+    "@types/node": "^18.0.3",
+    "eslint": "^8.20.0",
+    "jest": "^28.1.3",
+    "prettier": "^2.7.1",
+    "typescript": "^4.7.4"
+  }
+}
