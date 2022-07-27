@@ -57,6 +57,8 @@ build
 status.json
 
 #yarn
-.yarn
+.yarn/cache
+.yarn/unplugged
+.yarn/install-state.gz
 yarn-error.log
 env-config.js

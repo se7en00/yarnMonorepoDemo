@@ -1,0 +1,21 @@
+{
+  "name": "@monorepo/server",
+  "version": "1.0.0",
+  "packageManager": "yarn@3.2.1",
+  "scripts": {
+    "build": "tsc",
+    "start": "tsc dist/index.ts",
+    "dev": "nodemon --watch src -e ts,tsx --exec ts-node src/index.ts"
+  },
+  "dependencies": {
+    "koa": "^2.13.4",
+    "koa-route": "^3.2.0",
+    "koa-static": "^5.0.0",
+    "reflect-metadata": "^0.1.13"
+  },
+  "devDependencies": {
+    "@types/koa": "^2.13.5",
+    "nodemon": "^2.0.19",
+    "ts-node": "^10.9.1"
+  }
+}

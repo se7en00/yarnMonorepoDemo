@@ -10,14 +10,17 @@
   ],
   "scripts": {
     "interface": "yarn workspace interface",
-    "pa": "yarn workspace package-a"
+    "pa": "yarn workspace package-a",
+    "test": "jest"
   },
   "nohoist": [],
-  "packageManager": "yarn@3.2.1",
+  "packageManager": "yarn@3.2.2",
   "devDependencies": {
-    "@types/node": "^18.0.3",
+    "@typescript-eslint/eslint-plugin": "^5.31.0",
+    "@typescript-eslint/parser": "^5.31.0",
     "eslint": "^8.20.0",
-    "jest": "^28.1.3",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-prettier": "^4.2.1",
     "prettier": "^2.7.1",
     "typescript": "^4.7.4"
   }
