@@ -9,9 +9,13 @@
     "packages/*"
   ],
   "scripts": {
-    "interface": "yarn workspace interface",
-    "pa": "yarn workspace package-a",
-    "test": "jest"
+    "sever": "yarn workspace server",
+    "client": "yarn workspace client",
+    "test": "jest",
+    "lint:script": "eslint packages/**/src/*.ts",
+    "lint:fix": "yarn run lint:script --fix",
+    "postinstall": "husky install",
+    "lint-front": "lint-staged"
   },
   "nohoist": [],
   "packageManager": "yarn@3.2.2",
@@ -21,7 +25,17 @@
     "eslint": "^8.20.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-prettier": "^4.2.1",
+    "husky": "^8.0.0",
+    "lint-staged": "^13.0.3",
     "prettier": "^2.7.1",
+    "pretty-quick": "^3.1.3",
     "typescript": "^4.7.4"
-  }
+    },
+  "lint-staged": {
+    "src/**/*.{js,jsx,ts,tsx,json}": [
+      "prettier --write",
+      "eslint",
+      "git add"
+    ]
+    }
 }

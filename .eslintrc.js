@@ -24,7 +24,7 @@ module.exports = {
     parserOptions: {
         ecmaVersion: 11,
         sourceType: "module",
-        project: "./tsconfig.json"
+        project: ["./tsconfig.json", "./packages/*/tsconfig.json"]
         // ecmaFeatures: {
         //     jsx: true
         // }
@@ -67,8 +67,8 @@ module.exports = {
         // allow async-await
         "generator-star-spacing": 0,
         // allow debugger during development
-        "no-debugger": process.env.NODE_ENV === "production" ? 2 : 1,
-        // 'no-console': process.env.NODE_ENV === 'production' ? 2 : 1,
+        "no-debugger": 2,
+        "no-console": 1,
         //函数定义的时候不允许出现重复的参数
         "no-dupe-args": 2,
         // 必须使用 === 或 !==，禁止使用 == 或 !=，与 null 比较时除外
@@ -103,19 +103,9 @@ module.exports = {
         "@typescript-eslint/camelcase": "off",
         "@typescript-eslint/naming-convention": "off",
         "@typescript-eslint/no-empty-function": "off",
-        // "@typescript-eslint/naming-convention": [
-        //     "error",
-        //     {"selector": "default", "format": ["camelCase"]},
-        //     {"selector": "variableLike", "format": ["camelCase", "PascalCase"] },
-        //     {"selector": "enumMember", "format": ["UPPER_CASE"] },
-        //     {"selector": "enum", "format": ["UPPER_CASE"], "prefix": ["E"] },
-        //     {"selector": "typeParameter","format": ["PascalCase"],"prefix": ["T"]},
-        //     {"selector": "interface","format": ["PascalCase"],"prefix": ["I"]}
-        // ],
+
         "@typescript-eslint/explicit-module-boundary-types": 0,
         //关闭方法必须要返回类型
-        "@typescript-eslint/explicit-function-return-type": 0,
-        "react/prop-types": "off",
-        "react/display-name": "off"
+        "@typescript-eslint/explicit-function-return-type": 0
     }
 }
