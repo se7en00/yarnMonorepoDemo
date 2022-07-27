@@ -1,6 +1,6 @@
 {
   "name": "yarnmonorepo",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "main": "index.js",
   "author": "seven",
   "license": "MIT",
@@ -14,7 +14,8 @@
     "test": "jest",
     "lint:script": "eslint packages/**/src/*.ts",
     "lint:fix": "yarn run lint:script --fix",
-    "postinstall": "husky install"
+    "postinstall": "husky install",
+    "release": "standard-version"
   },
   "nohoist": [],
   "packageManager": "yarn@3.2.2",
