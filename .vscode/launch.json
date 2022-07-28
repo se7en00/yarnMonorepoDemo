@@ -1,0 +1,52 @@
+{
+      // 使用 IntelliSense 了解相关属性。
+      // 悬停以查看现有属性的描述。
+      // 欲了解更多信息，请访问: https://go.microsoft.com/fwlink/?linkid=830387
+      "version": "0.2.0",
+      "configurations": [
+            //https://wizardforcel.gitbooks.io/node-in-debugging/content/4.3.html
+            {
+                  "console": "integratedTerminal",
+                  "internalConsoleOptions": "neverOpen",
+                  "name": "nodemon",
+                  "program": "${workspaceFolder}/packages/server/src/index.ts",
+                  "request": "launch",
+                  "restart": true,
+                  "runtimeExecutable": "nodemon",
+                  "skipFiles": ["<node_internals>/**", "${workspaceFolder}/node_modules/**/*.js"],
+                  //   "preLaunchTask": "server_tsc",
+                  "type": "node"
+            },
+
+            //通过npm, 虽然在dev命令中使用了nodemon, 修改代码，会导致调试断开，不够智能热重启
+            // {
+            //       "name": "launch via npm",
+            //       "type": "node",
+            //       "request": "launch",
+            //       "runtimeExecutable": "npm",
+            //       "runtimeArgs": [
+            //             "run-script",
+            //             "dev:debug" //这里的dev就对应package.json中的scripts中的dev
+            //       ]
+            //       // "port": 9229
+            // },
+            //https://dev.to/oieduardorabelo/nodejs-with-typescript-debug-inside-vscode-and-nodemon-23o7
+            {
+                  "type": "node",
+                  "request": "attach",
+                  "name": "server debug",
+                  "processId": "${command:PickProcess}",
+                  "restart": true
+            },
+            //调试当前vscode 打开的单个文件
+            {
+                  "name": "Current TS File",
+                  "type": "node",
+                  "request": "launch",
+                  "args": ["${relativeFile}"], //VS Code (the${relativeFile} variable contains the currently open file)
+                  "runtimeArgs": ["--nolazy", "-r", "ts-node/register"],
+                  "sourceMaps": true,
+                  "cwd": "${workspaceRoot}"
+            }
+      ]
+}

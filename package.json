@@ -9,8 +9,8 @@
     "packages/*"
   ],
   "scripts": {
-    "sever": "yarn workspace server",
-    "client": "yarn workspace client",
+    "server": "yarn workspace @monorepo/server",
+    "client": "yarn workspace @monorepo/client",
     "test": "jest",
     "lint:script": "eslint packages/**/src/*.ts",
     "lint:fix": "yarn run lint:script --fix",
