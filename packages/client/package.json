@@ -1,12 +1,10 @@
 {
     "name": "@monorepo/client",
     "version": "1.0.0",
-    "main": "dist/index.js",
-    "types": "dist/index.d.ts",
     "license": "MIT",
     "packageManager": "yarn@3.2.1",
     "scripts": {
-        "build": "tsc --build",
+        "build": "rm -rf ./dist && tsc -p tsconfig.json",
         "start": "yarn build && node dist/index.js",
         "test": "test: jest"
     },

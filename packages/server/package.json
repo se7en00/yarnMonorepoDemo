@@ -3,10 +3,10 @@
   "version": "1.0.0",
   "packageManager": "yarn@3.2.1",
   "scripts": {
-    "start": "tsc && node  dist/index.js",
-    "build": "rm -rf ./dist && tsc -p tsconfig.json",
-    "dev": "nodemon src/index.ts --exec \"ts-node \"",
-    "dev:debug": "nodemon src/index.ts --inspect  --exec 'ts-node'"
+    "start": "tsc && tsc-alias && node dist/index.js",
+    "build": "rm -rf ./dist && tsc -p tsconfig.json && tsc-alias -p tsconfig.json",
+    "dev": "nodemon src/index.ts",
+    "dev:debug": "nodemon --inspect"
   },
   "dependencies": {
     "koa": "^2.13.4",
@@ -20,6 +20,8 @@
     "@types/koa-bodyparser": "^4.3.7",
     "@types/koa-router": "^7.4.4",
     "nodemon": "^2.0.19",
-    "ts-node": "^10.9.1"
+    "ts-node": "^10.9.1",
+    "tsc-alias": "^1.7.0",
+    "tsconfig-paths": "^4.0.0"
   }
 }
