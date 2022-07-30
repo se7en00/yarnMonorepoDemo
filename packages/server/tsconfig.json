@@ -5,12 +5,12 @@
             "rootDir": ".",
             "outDir": "./dist",
             "baseUrl": ".",
-            // "declaration": true,
-            // "declarationMap": true,
             "composite": true,
             "paths": {
                 "@/*": ["src/*"]
-            }
+            },
+            "emitDecoratorMetadata": true,          // 为装饰器提供元数据的支持
+            "experimentalDecorators": true,         // 启用装饰器
       },
       "include": ["src/**/*"],
       "exclude": ["node_modules", "dist", "**/*.test.ts"]

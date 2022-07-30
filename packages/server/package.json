@@ -6,7 +6,8 @@
     "start": "tsc && tsc-alias && node dist/index.js",
     "build": "rm -rf ./dist && tsc -p tsconfig.json && tsc-alias -p tsconfig.json",
     "dev": "nodemon src/index.ts",
-    "dev:debug": "nodemon --inspect"
+    "dev:debug": "nodemon --inspect",
+    "test": "yarn test"
   },
   "dependencies": {
     "koa": "^2.13.4",
