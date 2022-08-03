@@ -10,6 +10,7 @@
   "scripts": {
     "server": "yarn workspace @monorepo/server",
     "client": "yarn workspace @monorepo/client",
+    "utils": "yarn workspace @monorepo/utils",
     "test": "jest",
     "lint:script": "eslint packages/**/src/*.ts",
     "lint:fix": "yarn run lint:script --fix",

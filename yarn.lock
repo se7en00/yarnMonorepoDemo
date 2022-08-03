@@ -1056,6 +1056,12 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@monorepo/utils@workspace:packages/utils":
+  version: 0.0.0-use.local
+  resolution: "@monorepo/utils@workspace:packages/utils"
+  languageName: unknown
+  linkType: soft
+
 "@nodelib/fs.scandir@npm:2.1.5":
   version: 2.1.5
   resolution: "@nodelib/fs.scandir@npm:2.1.5"

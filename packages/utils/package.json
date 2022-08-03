@@ -1,0 +1,12 @@
+{
+    "name": "@monorepo/utils",
+    "version": "1.0.0",
+    "license": "MIT",
+    "main": "dist/index.js",
+    "types": "dist/index.d.js",
+    "scripts": {
+        "build": "rm -rf ./dist && tsc --build ./tsconfig.json",
+        "start": "yarn build && node dist/index.js",
+        "test": "test: jest"
+    }
+}

@@ -5,9 +5,10 @@ module.exports = {
     displayName: "server",
     roots: ["./packages/server/"],
     modulePathIgnorePatterns: ["<rootDir>/packages/server/dist/"],
-    setupFiles: ["<rootDir>/packages/server/jestSetup.ts"],
+    setupFilesAfterEnv: ["<rootDir>/packages/server/jest.setup.ts"],
     testEnvironment: "node",
     transform: {
-        "^.+\\.tsx?$": "ts-jest"
-    }
+        "^.+\\.[t|j]sx?$": "ts-jest"
+    },
+    transformIgnorePatterns: ["/node_modules/"]
 }

@@ -1,18 +1,16 @@
 {
       "extends": "../../tsconfig.json",
       "compilerOptions": {
-            // "rootDir": ".",
-            // "baseUrl": ".",
-            "rootDir": "src",
+            "module": "esnext",
             "outDir": "./dist",
+            "declaration": true,
+            "baseUrl": ".",
+            "rootDir": "src",
             "composite": true,
-            "isolatedModules": true
+            "paths": {
+                "@/*": ["./src/*"]
+            }
       },
-      "references": [
-        {
-              "path": "../utils"
-        }
-  ],
       "include": ["src/**/*"],
       "exclude": ["node_modules", "dist", "**/*.test.ts"]
 }

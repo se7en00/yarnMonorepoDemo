@@ -39,14 +39,27 @@
                   "restart": true
             },
             //调试当前vscode 打开的单个文件
+            // {
+            //       "name": "Current TS File",
+            //       "type": "node",
+            //       "request": "launch",
+            //       "args": ["${relativeFile}"], //VS Code (the${relativeFile} variable contains the currently open file)
+            //       "runtimeArgs": ["--nolazy", "-r", "ts-node/register"],
+            //       "sourceMaps": true,
+            //       "cwd": "${workspaceRoot}"
+            // },
             {
+                  "console": "integratedTerminal",
+                  "internalConsoleOptions": "neverOpen",
                   "name": "Current TS File",
-                  "type": "node",
                   "request": "launch",
-                  "args": ["${relativeFile}"], //VS Code (the${relativeFile} variable contains the currently open file)
-                  "runtimeArgs": ["--nolazy", "-r", "ts-node/register"],
-                  "sourceMaps": true,
-                  "cwd": "${workspaceRoot}"
+                  "restart": true,
+                  "runtimeExecutable": "nodemon",
+                  "args": ["${relativeFile}"],
+                  "cwd": "${workspaceRoot}",
+                  "skipFiles": ["<node_internals>/**", "${workspaceFolder}/node_modules/**/*.js"],
+                  //   "preLaunchTask": "server_tsc",
+                  "type": "node"
             }
       ]
 }
