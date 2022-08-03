@@ -63,3 +63,8 @@ status.json
 .yarn/install-state.gz
 yarn-error.log
 env-config.js
+
+#ts
+tsconfig.tsbuildinfo
+
+

@@ -3,10 +3,10 @@
   "version": "1.0.0",
   "packageManager": "yarn@3.2.1",
   "scripts": {
-    "start": "tsc -p tsconfig.json && tsc-alias && node dist/index.js",
-    "build": "rm -rf ./dist && tsc --build ./tsconfig.json && tsc-alias ",
+    "start": "tsc --build tsconfig.json && tsc-alias && node dist/index.js",
+    "build": "rm -rf ./dist && tsc --build ./tsconfig.json && tsc-alias -p tsconfig.json",
     "dev": "nodemon src/index.ts",
-    "typecheck": "tsc --project tsconfig.json",
+    "typecheck": "tsc --project tsconfig.json --noEmit",
     "dev:debug": "nodemon --inspect",
     "test": "yarn test"
   },
