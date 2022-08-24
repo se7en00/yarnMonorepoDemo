@@ -11,6 +11,7 @@
     "server": "yarn workspace @monorepo/server",
     "client": "yarn workspace @monorepo/client",
     "utils": "yarn workspace @monorepo/utils",
+    "docs": "docsify serve packages/docs -p 9000",
     "test": "jest",
     "lint:script": "eslint packages/**/src/*.ts",
     "lint:fix": "yarn lint:script --fix",
