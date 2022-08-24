@@ -1,23 +1,37 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
-import { Metadata } from "@server/common"
+import { Metadata } from "./Metadata"
 
-function logger(_target: any, _method?: any, descriptor?: any) {
-    return descriptor
-}
+const classDecorator: ClassDecorator = () => {}
+const methDecorator: MethodDecorator = (
+    _target: object,
+    _method?: string | symbol,
+    _descriptor?: PropertyDescriptor
+) => {}
+const propertyDecorator: PropertyDecorator = (_target: object, _propertyKey: string | symbol) => {}
 
-@logger
+@classDecorator
 class Test {
-    @logger
-    attribut = ""
+    @propertyDecorator
+    attribut: string = ""
 
-    // constructor(private _type?: string) {}
+    constructor(private type?: string) {}
 
     static methodStatic() {}
 
-    @logger
+    @methDecorator
     method(_type: string): boolean {
+        this.type
         return true
     }
+}
+
+class Test2 {
+    attribut: any
+
+    constructor() {}
+
+    static methodStatic() {}
+
+    method() {}
 }
 
 describe("MetaData", () => {
@@ -83,9 +97,67 @@ describe("MetaData", () => {
 
     describe("getType", () => {
         it("should return attribut type", () => {
-            const a = Metadata.getType(Test.prototype, "attribut")
-            console.log(a)
-            // expect(Metadata.getType(Test3.prototype, "attribut")).toBe(String)
+            const attributType = Metadata.getType(Test.prototype, "attribut")
+            expect(attributType).toEqual(String)
+        })
+    })
+
+    describe("getParamTypes", () => {
+        it("should return types on constructor", () => {
+            const constructorType = Metadata.getParamTypes(Test)
+            expect(Array.isArray(constructorType)).toBe(true)
+            expect(constructorType[0]).toEqual(String)
+        })
+
+        it("should return types on method", () => {
+            const methodType = Metadata.getParamTypes(Test.prototype, "method")
+            expect(Array.isArray(methodType)).toBe(true)
+            expect(typeof methodType[0]).toEqual(expect.any(String))
+        })
+    })
+
+    describe("getOwnParamTypes", () => {
+        it("should return types on constructor", () => {
+            const constructorOwnType = Metadata.getOwnParamTypes(Test)
+            expect(Array.isArray(constructorOwnType)).toBe(true)
+            expect(typeof constructorOwnType[0]).toEqual(expect.any(String))
+        })
+
+        it("should return types on method", () => {
+            const methodType = Metadata.getOwnParamTypes(Test.prototype, "method")
+            expect(Array.isArray(methodType)).toBe(true)
+            expect(typeof methodType[0]).toEqual(expect.any(String))
+        })
+    })
+
+    describe("getReturnType", () => {
+        it("should return types on method", () => {
+            const methodReturnType = Metadata.getReturnType(Test.prototype, "method")
+            expect(methodReturnType).toBeTruthy()
+        })
+    })
+
+    describe("getOwnReturnType", () => {
+        it("should return types on method", () => {
+            expect(Metadata.getReturnType(Test.prototype, "method")).toBeTruthy()
+        })
+    })
+
+    describe("list", () => {
+        it("should return unique provide from property key", () => {
+            Metadata.set("controller", "test", Test)
+            Metadata.set("controller", "test2", Test2)
+            Metadata.set("controller", "test", Test)
+
+            const result = Metadata.getTargetsFromPropertyKey("controller")
+            expect(Array.isArray(result)).toBe(true)
+
+            expect(result.indexOf(Test) > -1).toBe(true)
+            expect(result.indexOf(Test2) > -1).toBe(true)
+
+            const result2 = Metadata.getTargetsFromPropertyKey("controller2")
+            expect(Array.isArray(result2)).toBe(true)
+            expect(result2.length).toEqual(0)
         })
     })
 })

@@ -13,7 +13,7 @@
     "utils": "yarn workspace @monorepo/utils",
     "test": "jest",
     "lint:script": "eslint packages/**/src/*.ts",
-    "lint:fix": "yarn run lint:script --fix",
+    "lint:fix": "yarn lint:script --fix",
     "postinstall": "husky install",
     "release": "standard-version"
   },
@@ -39,7 +39,7 @@
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": [
       "prettier --write",
-      "eslint",
+      "eslint  --fix",
       "git add"
     ]
   },

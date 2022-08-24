@@ -6,3 +6,4 @@ node_modules/**
 *.scss
 *.woff
 *.ttf
+.eslintrc.js

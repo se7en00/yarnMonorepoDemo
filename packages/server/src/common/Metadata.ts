@@ -17,7 +17,7 @@ const DESIGN_PARAM_TYPES = "design:paramtypes"
  * @private
  * @type {string}
  */
-export const DESIGN_TYPE = "design:type"
+const DESIGN_TYPE = "design:type"
 /**
  * Metadata key
  * @private

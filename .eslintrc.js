@@ -99,13 +99,16 @@ module.exports = {
         //typescript
         "@typescript-eslint/no-non-null-assertion": 0,
         //any, 扩展运算符中可以运用any
-        "@typescript-eslint/no-explicit-any": [1, { ignoreRestArgs: true }],
+        "@typescript-eslint/no-explicit-any": [0, { ignoreRestArgs: true }],
         "@typescript-eslint/camelcase": "off",
         "@typescript-eslint/naming-convention": "off",
         "@typescript-eslint/no-empty-function": "off",
 
         "@typescript-eslint/explicit-module-boundary-types": 0,
         //关闭方法必须要返回类型
-        "@typescript-eslint/explicit-function-return-type": 0
+        "@typescript-eslint/explicit-function-return-type": 0,
+        //option specifies exceptions not to check for usage: arguments whose names match a regexp pattern
+        "@typescript-eslint/no-unused-vars": [2, { argsIgnorePattern: "^_" }],
+        "@typescript-eslint/no-inferrable-types": [1, { ignoreProperties: true }]
     }
 }
